@@ -1,4 +1,5 @@
 function add (numbers) {
+  var numbers = numbers.replace(/\n/g,",");
   if(numbers == ""){
   return 0;
   }
@@ -7,6 +8,10 @@ function add (numbers) {
     var numberArray = numbers.split(",");
     return sumOfNumbers(numberArray);
   }
+  /*else if(numbers.includes("\n")){
+    var numberArray = numbers.split("\n");
+    return sumOfNumbers(numberArray);
+  }*/
   else
     return parseInt(numbers);
 }
