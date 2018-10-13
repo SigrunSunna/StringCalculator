@@ -35,3 +35,7 @@ it("should handle a different delimiter", () => {
 it("should handle a different delimiter", () => {
     expect(add("//;\n2;2")).toBe(4);
 });
+
+it("should ignore numbers bigger than 1000", () => {
+    expect(add("1018, 2")).toBe(2);
+});

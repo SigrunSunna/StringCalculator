@@ -35,7 +35,6 @@ function sum(number_Array)
         var n = parseInt(number_Array[i]);
         if(n > 1000 || isNaN(n))
             {
-            console.log(n[i]);
             n = 0;
 
             }
