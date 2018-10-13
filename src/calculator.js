@@ -1,27 +1,55 @@
-function add (numbers) {
-  var numbers = numbers.replace(/\n/g,",");
-  if(numbers == ""){
-  return 0;
-  }
+function add (numbers){
 
-  if(numbers.includes(",")){
-    var numberArray = numbers.split(",");
-    return sumOfNumbers(numberArray);
-  }
-  /*else if(numbers.includes("\n")){
-    var numberArray = numbers.split("\n");
-    return sumOfNumbers(numberArray);
-  }*/
-  else
-    return parseInt(numbers);
+    var numbers = numbers.replace(/\n/g,",");
+
+    try {
+        if(numbers == "")
+            return 0;
+
+        if(numbers != '') {
+            var numberArray = numbers.split(",");
+            return sumOfNumbers(numberArray, ',');
+            }
+
+        else
+            return parseInt(numbers);
+        }
+
+    catch(errMessage) {
+        return errMessage;
+        }
 }
 
 function sumOfNumbers(numberArray){
-  var total = 0;
-  for(var i = 0; i < numberArray.length; i++){
-    total += parseInt(numberArray[i]);
-  }
-  return total;
+    var total = 0;
+    var negativeArray = [];
+
+    for(var i=0; i < numberArray.length; i++) {
+
+        if(numberArray[i] < 0) {
+            containsNegative = true;
+            negativeArray.push(numberArray[i]);
+        }
+
+
+            total += parseInt(numberArray[i]);
+    }
+
+        if(negativeArray.length != 0) {
+            negativeNumbers(negativeArray);
+        }
+    return total;
 }
 
+function negativeNumbers(negativeArray) {
+
+    var errMessage = 'Negatives not allowed: ';
+    for(var i = 0; i < negativeArray.length; i++) {
+        errMessage += negativeArray[i]
+        if(i != negativeArray.length - 1) {
+            errMessage += ',';
+        }
+    }
+    throw errMessage;
+}
 module.exports = add;

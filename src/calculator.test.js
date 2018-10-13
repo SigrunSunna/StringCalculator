@@ -19,3 +19,7 @@ it("should handle an unknown number of numbers", () => {
 it("should handle new lines between numbers", () => {
   expect(add("1 \n2,3")).toBe(6);
 });
+
+it("should be able to throw an error and print out a negative number", () => {
+    expect(add('3,-7,-9')).toBe("Negatives not allowed: -7,-9");
+});
