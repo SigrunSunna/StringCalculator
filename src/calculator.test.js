@@ -23,3 +23,7 @@ it("should handle new lines between numbers", () => {
 it("should be able to throw an error and print out a negative number", () => {
     expect(add('3,-7,-9')).toBe("Negatives not allowed: -7,-9");
 });
+
+it("should ignore numbers bigger than 1000", () => {
+    expect(add("1001, 2")).toBe(2);
+});

@@ -27,7 +27,9 @@ function sumOfNumbers(numberArray){
             containsNegative = true;
             negativeArray.push(numberArray[i]);
       }
+      if(numberArray[i] < 1000) {
       total += parseInt(numberArray[i]);
+      }
   }
 
       if(negativeArray.length != 0) {
