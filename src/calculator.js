@@ -1,23 +1,21 @@
 function add (numbers){
+var numbers = numbers.replace(/\n/g,",");
+  try {
+      if(numbers == "")
+        return 0;
 
-    var numbers = numbers.replace(/\n/g,",");
+      if(numbers != '') {
+        var numberArray = numbers.split(",");
+        return sumOfNumbers(numberArray, ',');
+      }
 
-    try {
-        if(numbers == "")
-            return 0;
+      else
+        return parseInt(numbers);
+  }
 
-        if(numbers != '') {
-            var numberArray = numbers.split(",");
-            return sumOfNumbers(numberArray, ',');
-            }
-
-        else
-            return parseInt(numbers);
-        }
-
-    catch(errMessage) {
-        return errMessage;
-        }
+  catch(errMessage) {
+    return errMessage;
+  }
 }
 
 function sumOfNumbers(numberArray){
@@ -25,19 +23,16 @@ function sumOfNumbers(numberArray){
     var negativeArray = [];
 
     for(var i=0; i < numberArray.length; i++) {
-
         if(numberArray[i] < 0) {
             containsNegative = true;
             negativeArray.push(numberArray[i]);
-        }
+      }
+      total += parseInt(numberArray[i]);
+  }
 
-
-            total += parseInt(numberArray[i]);
-    }
-
-        if(negativeArray.length != 0) {
+      if(negativeArray.length != 0) {
             negativeNumbers(negativeArray);
-        }
+      }
     return total;
 }
 
@@ -52,4 +47,5 @@ function negativeNumbers(negativeArray) {
     }
     throw errMessage;
 }
+
 module.exports = add;
